@@ -16,6 +16,7 @@ public class Direction {
 
         this.left = left;
         this.right = right;
+        System.out.println(this);
     }
 
     public boolean isRight() {
@@ -52,7 +53,7 @@ public class Direction {
     }
 
     public Direction last() {
-        return of(this.right,FALSE);
+        return of(this.right, FALSE);
     }
 
     @Override
