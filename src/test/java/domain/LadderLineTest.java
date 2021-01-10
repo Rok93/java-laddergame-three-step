@@ -3,18 +3,29 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 class LadderLineTest {
 
     @DisplayName("LadderLine 객체를 생성하는 기능을 테스트한다")
     @Test
     void testInitLadderLine() {
         //given
-        int sizeOfPerson = 5;
+        Point first = Point.first(true);
+        Point second = first.next(false);
+        List<Point> points = Arrays.asList(first, second);
 
         //when
-//        LadderLine ladderLine = LadderLine.init(sizeOfPerson);
+        LadderLine ladderLine = new LadderLine(points);
 
         //then
-//        assertThat(ladderLine).isEqualTo()
+        assertAll(
+                () -> assertThat(ladderLine.move(0)).isEqualTo(1),
+                () -> assertThat(ladderLine.move(1)).isEqualTo(0)
+        );
     }
 }
