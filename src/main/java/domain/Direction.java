@@ -6,17 +6,22 @@ import java.util.Random;
 import static java.lang.Boolean.FALSE;
 
 public class Direction {
+    private static final String LADDER_LINE_NOT_OVERLAP_ERROR_MESSAGE = "[ERROR] 사다리 라인은 겹칠 수 없습니다.";
+
     private final boolean left;
     private final boolean right;
 
     private Direction(boolean left, boolean right) {
-        if (left && right) {
-            throw new IllegalArgumentException();
-        }
+        validateDirection(left, right);
 
         this.left = left;
         this.right = right;
-        System.out.println(this);
+    }
+
+    private void validateDirection(boolean left, boolean right) {
+        if (left && right) {
+            throw new IllegalArgumentException(LADDER_LINE_NOT_OVERLAP_ERROR_MESSAGE);
+        }
     }
 
     public boolean isRight() {
@@ -67,13 +72,5 @@ public class Direction {
     @Override
     public int hashCode() {
         return Objects.hash(left, right);
-    }
-
-    @Override
-    public String toString() {
-        return "Direction{" +
-                "left=" + left +
-                ", right=" + right +
-                '}';
     }
 }
