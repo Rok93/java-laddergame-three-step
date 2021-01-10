@@ -8,7 +8,7 @@ public class LadderLine {
     private final List<Point> points;
 
     public LadderLine(List<Point> points) {
-        this.points = points;
+        this.points = new ArrayList<>(points);
     }
 
     public int move(int position) {
@@ -23,9 +23,10 @@ public class LadderLine {
         return new LadderLine(points);
     }
 
-    private static void initLast(List<Point> points, Point point) {
-        point = point.last();
+    private static Point initFirst(List<Point> points) {
+        Point point = Point.first(generatePoint());
         points.add(point);
+        return point;
     }
 
     private static Point initBody(int sizeOfPerson, List<Point> points, Point point) {
@@ -36,10 +37,9 @@ public class LadderLine {
         return point;
     }
 
-    private static Point initFirst(List<Point> points) {
-        Point point = Point.first(generatePoint());
+    private static void initLast(List<Point> points, Point point) {
+        point = point.last();
         points.add(point);
-        return point;
     }
 
     private static Boolean generatePoint() {
