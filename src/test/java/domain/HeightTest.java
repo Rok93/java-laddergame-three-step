@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class HeightTest {
 
@@ -19,5 +20,16 @@ class HeightTest {
 
         //then
         assertThat(height.getValue()).isEqualTo(heightValue);
+    }
+
+    @DisplayName("Height가 최소 높이보다 작으면 예외를 발생시킨다")
+    @ParameterizedTest
+    @ValueSource(ints = {
+            -8, -7, -6, -5, -4, -3, -2, -1, 0
+    })
+    void testInitHeightIfHeightValueLessThanMinHeight(int heightValue) {
+        //when //then
+        assertThatThrownBy(() -> new Height(heightValue))
+                .isExactlyInstanceOf(IllegalArgumentException.class);
     }
 }
