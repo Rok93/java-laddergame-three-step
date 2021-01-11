@@ -15,6 +15,14 @@ public class LadderLines {
         }
     }
 
+    public int traceResultIndexFrom(int index) {
+        for (LadderLine ladderLine : ladderLines) {
+            index = ladderLine.move(index);
+        }
+
+        return index;
+    }
+
     protected List<LadderLine> getValues() {
         return Collections.unmodifiableList(ladderLines);
     }
