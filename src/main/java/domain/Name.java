@@ -1,7 +1,5 @@
 package domain;
 
-import com.sun.istack.internal.Nullable;
-
 public class Name {
     private static final int MIN_NAME_LENGTH_LIMIT = 1;
     private static final int MAX_NAME_LENGTH_LIMIT = 5;
