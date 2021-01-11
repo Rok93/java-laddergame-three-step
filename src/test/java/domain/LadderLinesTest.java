@@ -17,7 +17,7 @@ class LadderLinesTest {
         Point first = Point.first(true);
         Point second = first.next(false);
         LadderLine ladderLine = new LadderLine(Arrays.asList(first, second));
-        int height = 3;
+        Height height = new Height(3);
 
         //when
         LadderLines ladderLines = new LadderLines(sizeOfPerson -> ladderLine, 2, height);
@@ -38,7 +38,7 @@ class LadderLinesTest {
         //given
         Point first = Point.first(true);
         LadderLine ladderLine = new LadderLine(Arrays.asList(first, first.next(false)));
-        int height = 3;
+        Height height = new Height(3);
 
         //when
         LadderLines ladderLines = new LadderLines(sizeOfPerson -> ladderLine, 2, height);

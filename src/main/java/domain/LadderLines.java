@@ -8,9 +8,10 @@ public class LadderLines {
 
     private final List<LadderLine> ladderLines;
 
-    public LadderLines(LadderLineGenerateStrategy ladderLineGenerateStrategy, int personNumber, int height) {
+    public LadderLines(LadderLineGenerateStrategy ladderLineGenerateStrategy, int personNumber, Height height) {
         this.ladderLines = new ArrayList<>();
-        for (int i = 0; i < height; i++) {
+        int heightValue = height.getValue();
+        for (int i = 0; i < heightValue; i++) {
             this.ladderLines.add(ladderLineGenerateStrategy.generateLine(personNumber));
         }
     }
