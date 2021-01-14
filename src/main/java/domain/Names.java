@@ -14,4 +14,8 @@ public class Names {
     public List<Name> getValues() {
         return Collections.unmodifiableList(names);
     }
+
+    public int calculateNamesNumber() {
+        return names.size();
+    }
 }

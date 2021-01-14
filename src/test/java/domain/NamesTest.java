@@ -31,4 +31,24 @@ class NamesTest {
                 .extracting("name", String.class)
                 .containsExactlyInAnyOrder(firstName, secondName, thirdName);
     }
+
+    @DisplayName("Names의 Name 수를 계산하는 기능을 테스트한다")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "A:B:C", "철수:영희:바둑이"
+    }, delimiter = ':')
+    void testCalculateNameNumber(String firstName, String secondName, String thirdName) {
+        //given
+        List<Name> nameValues = Arrays.asList(firstName, secondName, thirdName).stream()
+                .map(Name::new)
+                .collect(Collectors.toList());
+
+        Names names = new Names(nameValues);
+
+        //when
+        int namesNumber = names.calculateNamesNumber();
+
+        //then
+        assertThat(namesNumber).isEqualTo(3);
+    }
 }
