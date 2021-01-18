@@ -21,4 +21,8 @@ public class Name {
     public String getValue() {
         return name;
     }
+
+    public boolean equalTo(String targetName) {
+        return this.name.equals(targetName);
+    }
 }
