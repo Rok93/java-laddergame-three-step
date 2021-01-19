@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class LadderLineDefaultStrategy implements LadderLineGenerateStrategy{
+public class LadderLineDefaultStrategy implements LadderLineGenerateStrategy {
     @Override
     public LadderLine generateLine(int sizeOfPerson) {
         return new LadderLine(init(sizeOfPerson));
