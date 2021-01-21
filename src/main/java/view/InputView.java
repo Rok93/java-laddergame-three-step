@@ -12,6 +12,9 @@ public class InputView {
     private static final String PLEASE_INPUT_LADDER_RESULTS_MESSAGE = "실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)";
     private static final String HOW_MANY_HEIGHT_VALUE_MESSAGE = "최대 사다리 높이는 몇 개인가요?";
 
+    private InputView() {
+    }
+
     public static Names inputNames(Scanner scanner) {
         System.out.println(PLEASE_INPUT_PARTICIPANT_NAMES_MESSAGE);
         String nameValues = scanner.nextLine();
