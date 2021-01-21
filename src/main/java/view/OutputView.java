@@ -33,8 +33,8 @@ public class OutputView {
     }
 
     private static void printLadder(LadderLines ladderLines) {
-        List<LadderLine> ladderLines2 = ladderLines.getValues();
-        ladderLines2.stream()
+        List<LadderLine> ladderLinesValues = ladderLines.getValues();
+        ladderLinesValues.stream()
                 .forEach(OutputView::printLadderLine);
     }
 
