@@ -31,6 +31,10 @@ public class Names {
                 .orElseThrow(() -> new IllegalArgumentException(NOT_EXIST_NAME_ERROR_MESSAGE));
     }
 
+    public Name get(int index) {
+        return names.get(index);
+    }
+
     public int size() {
         return names.size();
     }

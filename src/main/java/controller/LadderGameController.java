@@ -1,14 +1,16 @@
 package controller;
 
-import domain.LadderLineGenerateStrategy;
-import domain.LadderLines;
-import domain.Names;
-import domain.Results;
+import domain.*;
 import dto.LadderRequestDto;
 import dto.LadderResponseDto;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class LadderGameController {
 
+    public static final int FIRST_INDEX = 0;
     private final LadderLineGenerateStrategy ladderLineGenerateStrategy;
 
     public LadderGameController(LadderLineGenerateStrategy ladderLineGenerateStrategy) {
@@ -32,5 +34,19 @@ public class LadderGameController {
         } catch (IllegalArgumentException e) {
             return new LadderResponseDto(e.getMessage());
         }
+    }
+
+    public LadderResponseDto checkAllResult(LadderResponseDto responseDto) {
+        Names names = responseDto.getNames();
+        LadderLines ladderLines = responseDto.getLadderLines();
+        Results results = responseDto.getResults();
+
+        int peopleNumber = names.calculateNamesNumber();
+        Map<Name, Result> ladderResult = IntStream.range(FIRST_INDEX, peopleNumber)
+                .mapToObj(Integer::new)
+                .collect(Collectors.toMap(
+                        names::get, peopleIndex -> results.get(ladderLines.traceResultIndexFrom(peopleIndex)))
+                );
+        return new LadderResponseDto(ladderResult);
     }
 }

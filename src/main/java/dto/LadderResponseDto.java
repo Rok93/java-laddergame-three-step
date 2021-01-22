@@ -1,8 +1,9 @@
 package dto;
 
-import domain.LadderLines;
-import domain.Names;
-import domain.Results;
+import domain.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LadderResponseDto {
 
@@ -10,6 +11,7 @@ public class LadderResponseDto {
     private LadderLines ladderLines;
     private Results results;
     private String result;
+    private Map<Name, Result> ladderResult;
 
     public LadderResponseDto(Names names, LadderLines ladderLines, Results results) {
         this.names = names;
@@ -19,6 +21,14 @@ public class LadderResponseDto {
 
     public LadderResponseDto(String result) {
         this.result = result;
+    }
+
+    public LadderResponseDto(Map<Name, Result> ladderResult) {
+        this.ladderResult = new HashMap<>(ladderResult);
+    }
+
+    public Map<Name, Result> getLadderResult() {
+        return ladderResult;
     }
 
     public String getResult() {

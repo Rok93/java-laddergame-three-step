@@ -4,15 +4,18 @@ import domain.*;
 import dto.LadderResponseDto;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class OutputView {
-    private static final String LADDER_RESULT_MESSAGE = "사다리 결과";
+    private static final String LADDER_RESULT_MESSAGE = "사다리 결과\n";
     private static final String NAME_DELIMITER = "   ";
     private static final String RESULT_DELIMITER = "   ";
     private static final String LADDER_INITIAL_BLANK = "   ";
     private static final String LADDER_RIGHT_LINE_SYMBOL = "|-----";
     private static final String LADDER_LEFT_LINE_SYMBOL = "|     ";
+    private static final String PLAY_RESULT_MESSAGE = "실행 결과";
+    private static final String DELIMITER_COLON = " : ";
 
     private OutputView() {
     }
@@ -64,10 +67,20 @@ public class OutputView {
                 .map(Result::getValue)
                 .collect(Collectors.joining(RESULT_DELIMITER));
 
-        System.out.println(ladderResults);
+        System.out.println(ladderResults + "\n");
     }
 
     public static void printResult(String result) {
-        System.out.println(result);
+        System.out.println(result + "\n");
+    }
+
+    public static void printAllResults(LadderResponseDto ladderAllResults) {
+        Map<Name, Result> ladderResult = ladderAllResults.getLadderResult();
+        System.out.println(PLAY_RESULT_MESSAGE);
+        ladderResult.forEach((name, result) -> printEachResult(name, result));
+    }
+
+    private static void printEachResult(Name name, Result result) {
+        System.out.println(name.getValue() + DELIMITER_COLON + result.getValue());
     }
 }

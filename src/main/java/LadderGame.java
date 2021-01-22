@@ -34,5 +34,8 @@ public class LadderGame {
             checkedPeople = InputView.inputRequestCheckedPeopleName(scanner);
         }
 
+        LadderResponseDto ladderAllResults = ladderGameController.checkAllResult(responseDto);
+        OutputView.printAllResults(ladderAllResults);
+
     }
 }
