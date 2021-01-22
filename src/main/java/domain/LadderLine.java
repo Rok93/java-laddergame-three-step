@@ -15,10 +15,6 @@ public class LadderLine {
         return points.get(position).move();
     }
 
-    public int length() {
-        return points.size();
-    }
-
     public List<Point> getValues() {
         return Collections.unmodifiableList(points);
     }

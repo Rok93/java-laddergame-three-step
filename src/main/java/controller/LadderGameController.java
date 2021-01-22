@@ -44,9 +44,7 @@ public class LadderGameController {
         int peopleNumber = names.calculateNamesNumber();
         Map<Name, Result> ladderResult = IntStream.range(FIRST_INDEX, peopleNumber)
                 .mapToObj(Integer::new)
-                .collect(Collectors.toMap(
-                        names::get, peopleIndex -> results.get(ladderLines.traceResultIndexFrom(peopleIndex)))
-                );
+                .collect(Collectors.toMap(names::get, index -> results.get(ladderLines.traceResultIndexFrom(index))));
         return new LadderResponseDto(ladderResult);
     }
 }

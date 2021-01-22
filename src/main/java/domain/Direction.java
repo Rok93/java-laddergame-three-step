@@ -13,7 +13,6 @@ public class Direction {
 
     private Direction(boolean left, boolean right) {
         validateDirection(left, right);
-
         this.left = left;
         this.right = right;
     }
