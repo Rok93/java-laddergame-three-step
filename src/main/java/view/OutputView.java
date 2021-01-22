@@ -66,4 +66,8 @@ public class OutputView {
 
         System.out.println(ladderResults);
     }
+
+    public static void printResult(String result) {
+        System.out.println(result);
+    }
 }

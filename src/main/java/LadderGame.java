@@ -29,12 +29,10 @@ public class LadderGame {
         String checkedPeople = InputView.inputRequestCheckedPeopleName(scanner);
         while (!checkedPeople.equals(END_COMMAND_ALL)) {
             LadderResponseDto ladderResponseDto = ladderGameController.checkResult(responseDto, checkedPeople);
-            System.out.println(ladderResponseDto.getResult());
+            OutputView.printResult(ladderResponseDto.getResult());
 
             checkedPeople = InputView.inputRequestCheckedPeopleName(scanner);
         }
-
-//        System.out.println(results.getAll(ladderResultSequences));
 
     }
 }
