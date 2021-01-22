@@ -36,4 +36,8 @@ public class Point {
     public static Point first(Boolean right) {
         return new Point(0, Direction.first(right));
     }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }

@@ -1,6 +1,7 @@
 package view;
 
 import domain.*;
+import dto.LadderResponseDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,11 +17,11 @@ public class OutputView {
     private OutputView() {
     }
 
-    public static void printLadderResult(Names names, LadderLines ladderLines, Results results) {
+    public static void printLadderResult(LadderResponseDto responseDto) {
         System.out.println(LADDER_RESULT_MESSAGE);
-        printNames(names);
-        printLadder(ladderLines);
-        printResults(results);
+        printNames(responseDto.getNames());
+        printLadder(responseDto.getLadderLines());
+        printResults(responseDto.getResults());
     }
 
     private static void printNames(Names names) {

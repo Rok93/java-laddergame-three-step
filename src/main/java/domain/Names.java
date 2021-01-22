@@ -30,4 +30,8 @@ public class Names {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_EXIST_NAME_ERROR_MESSAGE));
     }
+
+    public int size() {
+        return names.size();
+    }
 }

@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LadderLine {
@@ -16,5 +17,9 @@ public class LadderLine {
 
     public int length() {
         return points.size();
+    }
+
+    public List<Point> getValues() {
+        return Collections.unmodifiableList(points);
     }
 }

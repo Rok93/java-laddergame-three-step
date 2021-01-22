@@ -15,4 +15,8 @@ public class Results {
     public List<Result> getValues() {
         return Collections.unmodifiableList(results);
     }
+
+    public Result get(int index) {
+        return results.get(index);
+    }
 }

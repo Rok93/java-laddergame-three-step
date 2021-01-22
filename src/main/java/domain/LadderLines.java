@@ -24,7 +24,7 @@ public class LadderLines {
         return index;
     }
 
-    protected List<LadderLine> getValues() {
+    public List<LadderLine> getValues() {
         return Collections.unmodifiableList(ladderLines);
     }
 }
