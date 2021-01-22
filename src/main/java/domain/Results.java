@@ -17,6 +17,10 @@ public class Results {
     }
 
     public Result get(int index) {
+        if (index >= results.size()) {
+            throw new IllegalArgumentException("[ERROR] 존재하지않는 결과입니다");
+        }
+
         return results.get(index);
     }
 }
